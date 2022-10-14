@@ -11,7 +11,7 @@ public class User {
     {
         answers = new ArrayList<Integer>();
         questions = new ArrayList<String>();
-        questions.add(1, " During the past month, what time have you usually gone to bed at night? ");
+        questions.add(0, " During the past month, what time have you usually gone to bed at night? ");
     }
 
     public String  ask(int num)
