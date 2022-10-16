@@ -9,9 +9,11 @@ import com.linecorp.bot.spring.boot.annotation.EventMapping;
 import com.linecorp.bot.spring.boot.annotation.LineMessageHandler;
 import org.springframework.boot.SpringApplication;
 import org.springframework.boot.autoconfigure.SpringBootApplication;
+import org.springframework.web.bind.annotation.*;
 
 @SpringBootApplication
 @LineMessageHandler
+@RestController
 public class SleepSurveyApplication {
 
     private final Logger log = LoggerFactory.getLogger(SleepSurveyApplication.class);
@@ -28,6 +30,36 @@ public class SleepSurveyApplication {
 
         var userId = event.getSource().getUserId();
         var text = event.getMessage().getText();
+
+        if (text.equals("是")) {
+            return new TextMessage("開始psqi睡眠品質衡量測驗");
+        }
+
+        int count = 0;
+
+        while (count < 9) {
+            if (count < 9) {
+                return new TextMessage(u.ask(count));
+            }
+            int ans;
+
+            try {
+                ans = Integer.parseInt(text);
+            } catch (NumberFormatException exception) {
+                ans = -1;
+            }
+            if (ans != -1) {
+                u.addAnswer(count, ans);
+            }
+        }
+        return null;
+    }
+
+    @GetMapping(path = "/{input}")
+    public TextMessage localTest(@PathVariable("input") String input) {
+
+        var userId = "A82C8D";
+        var text = input;
 
         if (text.equals("是")) {
             return new TextMessage("開始psqi睡眠品質衡量測驗");
