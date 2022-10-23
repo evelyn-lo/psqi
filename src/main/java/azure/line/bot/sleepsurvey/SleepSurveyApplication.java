@@ -11,6 +11,9 @@ import org.springframework.boot.SpringApplication;
 import org.springframework.boot.autoconfigure.SpringBootApplication;
 import org.springframework.web.bind.annotation.*;
 
+import java.util.HashMap;
+import java.util.Map;
+
 @SpringBootApplication
 @LineMessageHandler
 @RestController
@@ -18,7 +21,7 @@ public class SleepSurveyApplication {
 
     private final Logger log = LoggerFactory.getLogger(SleepSurveyApplication.class);
 
-    private static User u = new User();
+    private static final Map<String, User> users = new HashMap<>();
 
     public static void main(String[] args) {
         SpringApplication.run(SleepSurveyApplication.class, args);
@@ -31,58 +34,43 @@ public class SleepSurveyApplication {
         var userId = event.getSource().getUserId();
         var text = event.getMessage().getText();
 
+        User user = getUser(userId);
+
         if (text.equals("是")) {
-            return new TextMessage("開始psqi睡眠品質衡量測驗");
+            String question1 = user.ask(0);
+            return new TextMessage("開始psqi睡眠品質衡量測驗" + question1);
         }
 
-        int count = 0;
+        int userCurrentNum = user.getCurrNum();
 
-        while (count < 9) {
-            if (count < 9) {
-                return new TextMessage(u.ask(count));
-            }
-            int ans;
+        boolean isFormatted = user.checkRightFormat(text);
+        if (isFormatted) {
 
-            try {
-                ans = Integer.parseInt(text);
-            } catch (NumberFormatException exception) {
-                ans = -1;
+            user.addAnswer(userCurrentNum, text);
+            user.setCurrNum(userCurrentNum + 1);
+
+            if (user.getCurrNum() == 17) {
+                int score = CalculateScore.calculateScore(user);
+                return new TextMessage("" + score);
             }
-            if (ans != -1) {
-                u.addAnswer(count, ans);
-            }
+
+            return new TextMessage(user.ask(user.getCurrNum()));
+        } else {
+            // return 'you input wrong format'
+            return new TextMessage("格式錯誤請重新回答，" + user.ask(userCurrentNum));
         }
-        return null;
+
     }
 
-    @GetMapping(path = "/{input}")
-    public TextMessage localTest(@PathVariable("input") String input) {
-
-        var userId = "A82C8D";
-        var text = input;
-
-        if (text.equals("是")) {
-            return new TextMessage("開始psqi睡眠品質衡量測驗");
+    private User getUser(String userId) {
+        User u;
+        if (users.containsKey(userId)) {
+            u = users.get(userId);
+        } else {
+            u = new User();
+            users.put(userId, u);
         }
-
-        int count = 0;
-
-        while (count < 9) {
-            if (count < 9) {
-                return new TextMessage(u.ask(count));
-            }
-            int ans;
-
-            try {
-                ans = Integer.parseInt(text);
-            } catch (NumberFormatException exception) {
-                ans = -1;
-            }
-            if (ans != -1) {
-                u.addAnswer(count, ans);
-            }
-        }
-        return null;
+        return u;
     }
 }
 
