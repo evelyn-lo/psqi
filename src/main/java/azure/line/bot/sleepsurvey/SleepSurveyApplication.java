@@ -58,7 +58,7 @@ public class SleepSurveyApplication {
             return new TextMessage(user.ask(user.getCurrNum()));
         } else {
             // return 'you input wrong format'
-            return new TextMessage("格式錯誤請重新回答，" + user.ask(userCurrentNum));
+            return new TextMessage("格式錯誤請重新回答 \n" + user.ask(userCurrentNum));
         }
 
     }
