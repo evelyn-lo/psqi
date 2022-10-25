@@ -38,7 +38,7 @@ public class SleepSurveyApplication {
 
         if (text.equals("是")) {
             String question1 = user.ask(0);
-            return new TextMessage("開始匹茲堡睡眠品質量表(共有九題) /n" + question1);
+            return new TextMessage("開始匹茲堡睡眠品質量表(共有九題) \n" + question1);
         }
 
         int userCurrentNum = user.getCurrNum();
