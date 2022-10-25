@@ -38,7 +38,7 @@ public class SleepSurveyApplication {
 
         if (text.equals("是")) {
             String question1 = user.ask(0);
-            return new TextMessage("開始psqi睡眠品質衡量測驗" + question1);
+            return new TextMessage("開始匹茲堡睡眠品質量表(共有九題) /n" + question1);
         }
 
         int userCurrentNum = user.getCurrNum();
@@ -51,7 +51,7 @@ public class SleepSurveyApplication {
 
             if (user.getCurrNum() == 17) {
                 int score = CalculateScore.calculateScore(user);
-                return new TextMessage("" + score);
+                return new TextMessage("你的匹茲堡睡眠質量指數為: " + score);
             }
 
             return new TextMessage(user.ask(user.getCurrNum()));
