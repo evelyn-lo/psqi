@@ -80,7 +80,6 @@ public class User {
                 try {
                     // all int var
                     int ans = Integer.parseInt(each);
-                    return true;
                 } catch (NumberFormatException e) {
                     // must contain NOT int variable
                     return false;

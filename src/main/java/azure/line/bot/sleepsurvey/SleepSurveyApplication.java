@@ -42,6 +42,15 @@ public class SleepSurveyApplication {
             return new TextMessage("開始匹茲堡睡眠品質量表(共有九題) \n" + question1);
         }
 
+        if (text.equals("重新")) {
+
+            // remove the old user data, and create the new user object
+            User newUser = removeAndCreate(userId);
+            String question1 = newUser.ask(0);
+            newUser.setCurrNum(0);
+            return new TextMessage("開始匹茲堡睡眠品質量表(共有九題) \n" + question1);
+        }
+
         int userCurrentNum = user.getCurrNum();
 
         boolean isFormatted = user.checkRightFormat(text);
@@ -61,6 +70,12 @@ public class SleepSurveyApplication {
             return new TextMessage("格式錯誤請重新回答 \n" + user.ask(userCurrentNum));
         }
 
+    }
+
+    private User removeAndCreate(String userId) {
+        User newUser = new User();
+        users.put(userId, newUser);
+        return newUser;
     }
 
     private User getUser(String userId) {
