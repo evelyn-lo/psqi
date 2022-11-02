@@ -71,21 +71,24 @@ public class User {
 
             // 23:13
             // ["23", "13"]
-            String[] answers = s.split(":");
+            String[] answerParts = s.split(":");
+            List<Integer> ans = new ArrayList<>();
 
             // check every element in this array
-            for (String each : answers) {
+            for (String each : answerParts) {
 
                 // if any element is NOT int -> return false
                 try {
                     // all int var
-                    int ans = Integer.parseInt(each);
+                    int t = Integer.parseInt(each);
+                    ans.add(t);
                 } catch (NumberFormatException e) {
                     // must contain NOT int variable
                     return false;
                 }
             }
 
+            return ans.size() == 2;
 
         } else {
             try {
@@ -93,11 +96,6 @@ public class User {
             } catch (NumberFormatException e) {
                 return false;
             }
-        }
-
-        // 1
-        if (currNum == 1) {
-            return true;
         }
 
 

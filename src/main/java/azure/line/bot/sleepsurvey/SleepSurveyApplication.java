@@ -66,6 +66,11 @@ public class SleepSurveyApplication {
 
             return new TextMessage(user.ask(user.getCurrNum()));
         } else {
+
+            if (user.getCurrNum() == 0) {
+                return new TextMessage("請輸入\"是\"來開始");
+            }
+
             // return 'you input wrong format'
             return new TextMessage("格式錯誤請重新回答 \n" + user.ask(userCurrentNum));
         }
