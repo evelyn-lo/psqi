@@ -98,6 +98,10 @@ public class User {
             }
         }
 
+        if (currNum == 1) {
+            return true;
+        }
+
 
         // 4 ~ 12
         if (currNum >= 4 && currNum <= 16) {
