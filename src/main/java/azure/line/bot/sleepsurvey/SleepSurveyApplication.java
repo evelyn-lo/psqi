@@ -68,7 +68,7 @@ public class SleepSurveyApplication {
         } else {
 
             if (user.getCurrNum() == 0) {
-                return new TextMessage("請輸入\"是\"來開始");
+                return new TextMessage("格式錯誤，請輸入\"是\"來重新開始");
             }
 
             // return 'you input wrong format'
