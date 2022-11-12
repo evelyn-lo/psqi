@@ -47,7 +47,7 @@ public class SleepSurveyApplication {
         if (text.equals("所有答案"） && user.getDone())
                         {
                             user.changeDone(false);
-                            return new TextMessage("以下為問卷的所有答案:" + user.allAnswers());
+                            return new TextMessage("以下為問卷的所有答案: " + user.allAnswers());
                                                    
                                                    }
                             
