@@ -39,7 +39,7 @@ public class SleepSurveyApplication {
         if (text.equals("是")) {
             String question1 = user.ask(0);
             user.setCurrNum(0);
-            return new TextMessage("開始匹茲堡睡眠品質量表(共有九題) \n" + question1 + "\n若想重新回答問題，請回傳［重答］，若想重新整個問卷，請回傳［重新］");
+            return new TextMessage("開始匹茲堡睡眠品質量表(共有九題) \n" + question1 + "\n*若想更改答案可回傳[重答]*\n*若想重新填寫整個問卷可回傳[是]*");
         }
 
         if (text.equals("重新")) {
@@ -48,7 +48,7 @@ public class SleepSurveyApplication {
             User newUser = removeAndCreate(userId);
             String question1 = newUser.ask(0);
             newUser.setCurrNum(0);
-            return new TextMessage("開始匹茲堡睡眠品質量表(共有九題) \n" + question1  + "\n若想重新回答問題，請回傳［重答］，若想重新整個問卷，請回傳［重新］");
+            return new TextMessage("開始匹茲堡睡眠品質量表(共有九題) \n" + question1  + "\n*若想更改答案可回傳[重答]*\n*若想重新填寫整個問卷可回傳[是]*");
         }
 
         int userCurrentNum = user.getCurrNum();
@@ -61,16 +61,16 @@ public class SleepSurveyApplication {
 
             if (user.getCurrNum() == 17) {
                 int score = CalculateScore.calculateScore(user);
-                return new TextMessage("以下為問卷的所有答案:" + user.allAnswers() + "\n" + "\n" + "你的匹茲堡睡眠質量指數為: " + score + "\n" + "輸入\"重新\"可重新開始");
+                return new TextMessage("以下為問卷的所有答案:" + user.allAnswers() + "\n" + "\n" + "你的匹茲堡睡眠質量指數為: " + score + "\n" + "輸入\"是\"可重新開始");
             }
 
-            return new TextMessage(user.ask(user.getCurrNum())); }
+            return new TextMessage(user.ask(user.getCurrNum()) + "\n*若想更改答案可回傳[重答]*\n*若想重新填寫整個問卷可回傳[是]*"); }
         else {
     		
                             if (text.equals("重答")) {
 
             
-            return new TextMessage(user.ask(userCurrentNum) + "\n若想重新回答問題，請回傳［重答］，若想重新整個問卷，請回傳［重新］");
+            return new TextMessage(user.ask(userCurrentNum) + "\n*若想更改答案可回傳[重答]*\n*若想重新填寫整個問卷可回傳[是]*");
         }
 
             if (user.getCurrNum() == 0) {
@@ -78,7 +78,7 @@ public class SleepSurveyApplication {
             }
 
             // return 'you input wrong format'
-            return new TextMessage("格式錯誤請重新回答 \n" + user.ask(userCurrentNum)  + "\n若想重新回答問題，請回傳［重答］，若想重新整個問卷，請回傳［重新］");
+            return new TextMessage("格式錯誤請重新回答 \n" + user.ask(userCurrentNum)  + "\n*若想更改答案可回傳[重答]*\n*若想重新填寫整個問卷可回傳[是]*");
         }
 
     }
