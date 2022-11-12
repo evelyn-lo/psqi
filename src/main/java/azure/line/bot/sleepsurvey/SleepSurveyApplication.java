@@ -71,7 +71,7 @@ public class SleepSurveyApplication {
             if (user.getCurrNum() == 17) {
                 int score = CalculateScore.calculateScore(user);
                 user.changeDone(true);
-                return new TextMessage("你的匹茲堡睡眠質量指數為: " + score + "\n\n低於五通常是正常範圍，若是高於或等於五可考慮就醫\n\n" + "-輸入\"所有答案\"我將回傳您所有的答案\n\n-輸入\"是\"可重新開始測驗");
+                return new TextMessage("恭喜您答完所有問題！您的匹茲堡睡眠質量指數為: " + score + "\n\n<5 為正常\n>=5 可考慮就醫\n\n" + "-輸入\"所有答案\"我將回傳您所有的答案\n-輸入\"是\"可重新開始測驗");
             }
 
             return new TextMessage(user.ask(user.getCurrNum())); }
