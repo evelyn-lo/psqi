@@ -40,17 +40,17 @@ public class SleepSurveyApplication {
             
             String question1 = user.ask(0);
             user.setCurrNum(0);
-            return new TextMessage("開始匹茲堡睡眠品質量表(共有九題)\n\n*若想更改答案可回傳[重答]*\n*若想重新填寫整個問卷可回傳[是]*\n\n" + question1 );
+            return new TextMessage("開始匹茲堡睡眠品質量表(共有九題)\n\n*隨時回傳[重答]可更改上題答案*\n*隨時回傳[是]可重新回答整個問卷*\n\n" + question1 );
         }
 
-        if (text.equals("重新")) {
+        /**if (text.equals("重新")) {
 
             // remove the old user data, and create the new user object
             User newUser = removeAndCreate(userId);
             String question1 = newUser.ask(0);
             newUser.setCurrNum(0);
             return new TextMessage("開始匹茲堡睡眠品質量表(共有九題)\n\n*若想更改答案可回傳[重答]*\n*若想重新填寫整個問卷可回傳[是]*\n\n" + question1);
-        }
+        }**/
 
         int userCurrentNum = user.getCurrNum();
 
