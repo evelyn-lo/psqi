@@ -125,9 +125,9 @@ public class User {
             ans += "\n";
             }
             
-            ans += "q" + questions.get(i);
+            ans += "[q]" + questions.get(i);
             ans += "\n";
-            ans += "a: " + answers.get(i);
+            ans += "[a]: " + answers.get(i);
             
         }
         return ans;
