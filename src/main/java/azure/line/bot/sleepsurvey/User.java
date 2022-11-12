@@ -114,5 +114,19 @@ public class User {
 
         return false;
     }
+    public String allAnswers()
+    {
+        String ans = "";
+        for (int i = 0; i < questions.size(); i++)
+        {
+            ans += questions.get(i);
+            ans += "\n";
+            ans += answers.get(i);
+            ans += "\n";
+            ans += "\n";
+        }
+        return ans;
+            
+    }
 }
 
