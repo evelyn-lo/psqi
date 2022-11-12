@@ -66,11 +66,16 @@ public class SleepSurveyApplication {
 
             return new TextMessage(user.ask(user.getCurrNum()));
             ｝
-           else if (text.equals("重答＂））
-        ｛ 
-                                //return new TextMessage(user.ask(userCurrentNum));
-                                }
-                                else {
+			
+           
+            else {
+			if (text.equals("重答＂）
+							{　
+								
+									return new TextMessage(user.ask(userCurrentNum));	
+								
+							}
+									
 
             if (user.getCurrNum() == 0) {
                 return new TextMessage("格式錯誤，請輸入\"是\"來重新開始");
