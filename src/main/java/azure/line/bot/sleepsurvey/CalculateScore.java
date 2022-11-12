@@ -39,11 +39,9 @@ public class CalculateScore {
             return 1;
         } else if (score <= 4) {
             return 2;
-        } else if (score <= 6) {
-            return 3;
         } else {
-            return 0;
-        }
+            return 3;
+        } 
     }
 
     public static int component5(List<String> ans) {
@@ -60,11 +58,11 @@ public class CalculateScore {
             return 0;
         }
 
-        if (sum <= 9) {
+        else if (sum <= 9) {
             return 1;
         }
 
-        if (sum <= 18) {
+        else if (sum <= 18) {
             return 2;
         } else {
             return 3;
@@ -86,18 +84,18 @@ public class CalculateScore {
             return 0;
         }
 
-        if (sum <= 2) {
+        else if (sum <= 2) {
             return 1;
         }
 
-        if (sum <= 4) {
+        else if (sum <= 4) {
             return 2;
         }
 
-        if (sum <= 6) {
+        else  {
             return 3;
         }
-        return 0;
+        
 
     }
 
@@ -139,18 +137,18 @@ public class CalculateScore {
             }
         }
         // todo why + 1?
-        if (ans.get(1) != 0) {
-            ans.set(0, ans.get(0) + 1);
-        }
-        if (ans.get(0) > 7) {
+        int minduration = ans.get(0) * 60 + ans.get(1);
+        
+        if (minduration > 420) {
             return 0;
-        } else if (ans.get(0) > 6) {
+        } else if (minduration >= 360) {
             return 1;
-        } else if (ans.get(0) > 5) {
+        } else if (minduration >= 300) {
             return 2;
         } else {
             return 3;
         }
+        
     }
 
     //component 4 (0, 2, 3) -> parse to int
@@ -186,11 +184,13 @@ public class CalculateScore {
         } else if (ansInt.get(0) <= 12 && ansInt.get(2) <= 12) {
             inbedMins = ((ansInt.get(2) - ansInt.get(0)) * 60);
 
-            // sleep at morning and wake up afternoon
-        } else if (ansInt.get(0) >= 12 && ansInt.get(0) >= 12) {
+            // sleep at morning and wake up night
+        } else if (ansInt.get(0) <= 12 && ansInt.get(0) > 12) {
             inbedMins = (ansInt.get(2) - ansInt.get(0)) * 60;
-        } else {
-            inbedMins = (12 - ansInt.get(0) + ansInt.get(0) - 12) * 60;
+        } 
+        //sleep at night, wake up at night
+        else {
+            inbedMins = (ansInt.get(2) - ansInt.get(0)) * 60;
         }
 
         inbedMins += ansInt.get(3);
@@ -201,7 +201,7 @@ public class CalculateScore {
 
         double sleepEff = (double) sleepTime / (double) inbedMins;
 
-        if (sleepEff >= 0.85) {
+        if (sleepEff > 0.85) {
             return 0;
         } else if (sleepEff >= 0.75) {
             return 1;
