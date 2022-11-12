@@ -37,9 +37,7 @@ public class SleepSurveyApplication {
         User user = getUser(userId);
 
         if (text.equals("是")) {
-            User newUser = removeAndCreate(userId);
-            String question1 = newUser.ask(0);
-            newUser.setCurrNum(0);
+            
             String question1 = user.ask(0);
             user.setCurrNum(0);
             return new TextMessage("開始匹茲堡睡眠品質量表(共有九題)\n\n*若想更改答案可回傳[重答]*\n*若想重新填寫整個問卷可回傳[是]*\n\n" + question1 );
