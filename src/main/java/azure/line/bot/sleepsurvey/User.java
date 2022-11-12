@@ -116,11 +116,15 @@ public class User {
     }
     public String allAnswers()
     {
-        String ans = "";
+        String ans = "\n";
         for (int i = 0; i < questions.size(); i++)
         {
+            if (i != 0 )
+            {
             ans += "\n";
             ans += "\n";
+            }
+            
             ans += "q" + questions.get(i);
             ans += "\n";
             ans += "a: " + answers.get(i);
