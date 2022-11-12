@@ -44,7 +44,7 @@ public class SleepSurveyApplication {
             return new TextMessage("開始匹茲堡睡眠品質量表(共有九題)\n\n*隨時回傳[重答]可更改上題答案*\n*隨時回傳[是]可重新回答整個問卷*\n\n" + question1 );
             
         }
-        if (text.equals("所有答案"){
+        if (text.equals("所有答案")){
             if (user.getDone()){
                 return new TextMessage("以下為問卷的所有答案: \n" + user.allAnswers());
             }
