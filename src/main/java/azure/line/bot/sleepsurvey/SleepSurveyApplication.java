@@ -61,11 +61,16 @@ public class SleepSurveyApplication {
 
             if (user.getCurrNum() == 17) {
                 int score = CalculateScore.calculateScore(user);
-                return new TextMessage("以下為問卷的所有答案:" + user.allAnswers() + "\n" + "\n" + "你的匹茲堡睡眠質量指數為: " + score + "\n" + "輸入\"是\"來重新開始");
+                return new TextMessage("以下為問卷的所有答案:" + user.allAnswers() + "\n" + "\n" + "你的匹茲堡睡眠質量指數為: " + score + "\n" + "輸入\"重新\"可重新開始");
             }
 
             return new TextMessage(user.ask(user.getCurrNum()));
-        } else {
+            ｝
+           else if (text.equals("重答＂））
+        ｛ 
+                                return new TextMessage(user.ask(userCurrentNum));
+                                }
+                                else {
 
             if (user.getCurrNum() == 0) {
                 return new TextMessage("格式錯誤，請輸入\"是\"來重新開始");
