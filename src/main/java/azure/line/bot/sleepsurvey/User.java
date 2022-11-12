@@ -9,6 +9,7 @@ public class User {
     private final List<String> answers;
     private final List<String> questions;
     private int currNum;
+    private boolean done;
 
 
     public User() {
@@ -33,11 +34,22 @@ public class User {
         questions.add(15, "8: 過去一個月來，要打起精神來完成您應該做的事情對您有多少困擾(輸入0-3)\n0: 完全沒有困擾\n1: 只有很少困擾\n2: 有些困擾\n3: 有很大的困擾");
         questions.add(16, "9: 過去一個月來，您對您自己的睡眠品質整體評價如何(輸入0-3)\n0: 非常好\n1: 好\n2: 不好\n3: 非常不好");
         currNum = 0;
+        done = false;
     }
 
 
     public String ask(int num) {
         return questions.get(num);
+    }
+    
+    public void changeDone(boolean d)
+    {
+        done = d;
+    }
+    
+    public boolean getDone()
+    {
+        return done;
     }
 
     public void addAnswer(int num, String ans) {
