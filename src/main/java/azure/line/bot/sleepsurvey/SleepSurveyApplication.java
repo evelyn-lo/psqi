@@ -70,7 +70,7 @@ public class SleepSurveyApplication {
     		
                             if (text.equals("重答")) {
 
-            user.changeCurrNum(-1);
+            user.setCurrNum(userCurrentNum-1);
             return new TextMessage(user.ask(userCurrentNum));
         }
 
