@@ -39,9 +39,19 @@ public class SleepSurveyApplication {
         if (text.equals("是")) {
             
             String question1 = user.ask(0);
+            user.changeDone(false);
             user.setCurrNum(0);
             return new TextMessage("開始匹茲堡睡眠品質量表(共有九題)\n\n*隨時回傳[重答]可更改上題答案*\n*隨時回傳[是]可重新回答整個問卷*\n\n" + question1 );
+            
         }
+        if (text.equals("所有答案"） && user.getDone)
+                        {
+                            user.changeDone(false);
+                            return new TextMessage("以下為問卷的所有答案:" + user.allAnswers())
+                                                   
+                                                   }
+                            
+                            
 
         /**if (text.equals("重新")) {
 
@@ -62,7 +72,7 @@ public class SleepSurveyApplication {
 
             if (user.getCurrNum() == 17) {
                 int score = CalculateScore.calculateScore(user);
-                return new TextMessage("以下為問卷的所有答案:" + user.allAnswers() + "\n" + "\n" + "你的匹茲堡睡眠質量指數為: " + score + "\n低於五通常是正常範圍，若是高於或等於五可考慮就醫\n" + "輸入\"是\"可重新開始測驗");
+                return new TextMessage("你的匹茲堡睡眠質量指數為: " + score + "\n\n低於五通常是正常範圍，若是高於或等於五可考慮就醫\n\n" + "-輸入\"所有答案\"我將回傳您所有的答案\n\n-輸入\"是\"可重新開始測驗");
             }
 
             return new TextMessage(user.ask(user.getCurrNum())); }
