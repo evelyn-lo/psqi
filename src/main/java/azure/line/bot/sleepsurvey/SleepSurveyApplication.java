@@ -66,7 +66,7 @@ public class SleepSurveyApplication {
 
             return new TextMessage(user.ask(user.getCurrNum())); }
         else {
-    		if (text.equals("重答＂）{ 
+    		if (text.equals("重答＂)）{ 
                             return new TextMessage("" + user.ask(userCurrentNum));
                             }
             if (user.getCurrNum() == 0) {
