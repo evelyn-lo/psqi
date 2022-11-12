@@ -61,7 +61,7 @@ public class SleepSurveyApplication {
 
             if (user.getCurrNum() == 17) {
                 int score = CalculateScore.calculateScore(user);
-                return new TextMessage("你的匹茲堡睡眠質量指數為: " + score + "\n" + "\n" + "以下為問卷的所有答案:" + "\n" + user.allAnswers());
+                return new TextMessage("你的匹茲堡睡眠質量指數為: " + score + "\n" + "\n" + "以下為問卷的所有答案:" + user.allAnswers());
             }
 
             return new TextMessage(user.ask(user.getCurrNum()));
