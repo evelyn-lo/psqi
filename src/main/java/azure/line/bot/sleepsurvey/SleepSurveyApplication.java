@@ -48,7 +48,7 @@ public class SleepSurveyApplication {
             User newUser = removeAndCreate(userId);
             String question1 = newUser.ask(0);
             newUser.setCurrNum(0);
-            return new TextMessage("開始匹茲堡睡眠品質量表(共有九題) \n" + question1 + + "\n若想重新回答問題，請回傳［重答］，若想重新整個問卷，請回傳［重新］");
+            return new TextMessage("開始匹茲堡睡眠品質量表(共有九題) \n" + question1  + "\n若想重新回答問題，請回傳［重答］，若想重新整個問卷，請回傳［重新］");
         }
 
         int userCurrentNum = user.getCurrNum();
@@ -70,7 +70,7 @@ public class SleepSurveyApplication {
                             if (text.equals("重答")) {
 
             
-            return new TextMessage(user.ask(userCurrentNum) + + "\n若想重新回答問題，請回傳［重答］，若想重新整個問卷，請回傳［重新］");
+            return new TextMessage(user.ask(userCurrentNum) + "\n若想重新回答問題，請回傳［重答］，若想重新整個問卷，請回傳［重新］");
         }
 
             if (user.getCurrNum() == 0) {
@@ -78,7 +78,7 @@ public class SleepSurveyApplication {
             }
 
             // return 'you input wrong format'
-            return new TextMessage("格式錯誤請重新回答 \n" + user.ask(userCurrentNum) + + "\n若想重新回答問題，請回傳［重答］，若想重新整個問卷，請回傳［重新］");
+            return new TextMessage("格式錯誤請重新回答 \n" + user.ask(userCurrentNum)  + "\n若想重新回答問題，請回傳［重答］，若想重新整個問卷，請回傳［重新］");
         }
 
     }
