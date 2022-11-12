@@ -192,7 +192,7 @@ public class CalculateScore {
         else {
             inbedMins = (ansInt.get(2) - ansInt.get(0)) * 60;
         }
-
+        //add
         inbedMins += ansInt.get(3);
         inbedMins -= ansInt.get(1);
 
