@@ -51,6 +51,10 @@ public class User {
     public int getCurrNum() {
         return currNum;
     }
+    public void changeCurrNum(int i)
+    {
+        currNum += i;
+    }
 
     public List<String> getAns() {
         return answers;
