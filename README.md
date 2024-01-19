@@ -1,8 +1,6 @@
 # Line Chatbot - PSQI Assessment
 
-This chatbot is designed based on the Pittsburgh Sleep Quality Index and implemented as an interactive Q&A design. It runs through GitHub cloud, IntelliJ IDEA, and three classes: 1. sleepsurveyapplication 2. CalculateScore 3. User.
-
-
+This project is a chatbot designed to evaluate users' sleep quality by incorporating the Pittsburgh Sleep Quality Index into an interactive question-and-answer system. GitHub cloud, IntelliJ IDEA, and three essential classes: 1. sleepsurveyapplication, 2. CalculateScore, and 3. User are implemented.
 
 
 
