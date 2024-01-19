@@ -1,5 +1,9 @@
-# Line 聊天機器人 - 匹茲堡睡眠品質量表
+# Line Chatbot - PSQI Assessment
 
-此機器人以匹茲堡睡眠品質量表為藍本，而設計出的互動式問答程式。
-透過githubt雲端，IntelliJ IDEA 和三個class運行: 1. sleepsurveyapplication 2. CalculateScore 3.User
+This chatbot is designed based on the Pittsburgh Sleep Quality Index and implemented as an interactive Q&A design. It runs through GitHub cloud, IntelliJ IDEA, and three classes: 1. sleepsurveyapplication 2. CalculateScore 3. User.
+
+
+
+
+
 
